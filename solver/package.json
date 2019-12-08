@@ -1,6 +1,7 @@
 {
   "name": "cloudpiercer-solver",
   "version": "0.1.0",
+  "bin": "server.js",
   "dependencies": {
     "concat-stream": "^2.0.0",
     "express": "^4.17.1",
