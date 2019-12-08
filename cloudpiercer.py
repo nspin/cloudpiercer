@@ -20,6 +20,7 @@ class CloudPiercer:
 
     async def fetch(self, sess, url, extra_headers={}, with_text=False):
 
+        # Cloudflare seems to do a bit of browser fingerprinting. This combination of headers works at time of writing.
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
