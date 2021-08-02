@@ -16,9 +16,14 @@ function solve(url, html) {
       setTimeout\\(function\\(\\){
         (?<innerScript>(.|\\n)*)
         f.submit\\(\\);
-      },4000\\);`, 'm');
+      },.*4000\\);`, 'm');
 
-    const { innerScript } = re.exec(script.text).groups;
+    const m = re.exec(script.text);
+    if (m == null) {
+        console.log(script.text);
+        throw 'bad script';
+    }
+    const { innerScript } = m.groups;
 
     const vmScript = new vm.Script(innerScript);
     dom.runVMScript(vmScript);
